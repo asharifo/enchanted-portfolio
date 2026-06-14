@@ -1,0 +1,323 @@
+// ════════════════════════════════════════════════════════════════════════
+//  WORK EXPERIENCE  →  rugged ripped parchment / spellbook page
+// ════════════════════════════════════════════════════════════════════════
+.panel[data-theme='work'] .panel__content {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+.parchment {
+  position: relative;
+  padding: clamp(1.8rem, 4.5vw, 3rem) clamp(1.6rem, 4vw, 2.6rem);
+  color: var(--parch-ink);
+  background: linear-gradient(115deg, var(--parch-100), var(--parch-200) 55%, var(--parch-300));
+  background-blend-mode: multiply;
+  box-shadow: inset 0 0 70px rgba(120, 84, 40, 0.45), inset 0 0 12px rgba(70, 45, 18, 0.5),
+    0 30px 80px rgba(0, 0, 0, 0.6);
+  // subtle torn top & bottom edges
+  clip-path: polygon(
+    0% 1.2%, 8% 0.2%, 16% 1.4%, 25% 0.3%, 33% 1.2%, 42% 0.2%, 50% 1.3%, 58% 0.3%, 66% 1.2%,
+    75% 0.2%, 83% 1.3%, 92% 0.3%, 100% 1.2%, 100% 98.8%, 92% 99.8%, 83% 98.7%, 75% 99.8%,
+    66% 98.8%, 58% 99.7%, 50% 98.7%, 42% 99.8%, 33% 98.8%, 25% 99.7%, 16% 98.7%, 8% 99.8%, 0% 98.8%
+  );
+
+  &::before {
+    // foxing / age stains
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 18% 22%, rgba(120, 80, 30, 0.16), transparent 24%),
+      radial-gradient(circle at 82% 70%, rgba(120, 80, 30, 0.14), transparent 26%),
+      radial-gradient(circle at 60% 12%, rgba(90, 60, 20, 0.1), transparent 20%);
+    pointer-events: none;
+    mix-blend-mode: multiply;
+  }
+
+  .eyebrow {
+    color: var(--parch-ink-soft);
+  }
+  .panel-title {
+    color: #6e3d1a;
+    text-shadow: none;
+    font-family: var(--font-display);
+  }
+}
+
+.parchment__seal {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.2rem;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  font-size: 1.2rem;
+  color: var(--parch-100);
+  background: radial-gradient(circle at 40% 35%, #b6402f, #7a1f17);
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4), inset 0 0 8px rgba(0, 0, 0, 0.4);
+  transform: rotate(-8deg);
+}
+
+.parchment__body {
+  margin-top: 1rem;
+}
+
+.entry {
+  &__head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  h3 {
+    font-family: var(--font-head);
+    font-weight: 600;
+    font-size: clamp(1.1rem, 3vw, 1.35rem);
+    margin: 0;
+    color: #4a2f15;
+  }
+  &__period {
+    font-family: var(--font-head);
+    font-size: 0.8rem;
+    color: var(--parch-ink-soft);
+    white-space: nowrap;
+  }
+  &__org {
+    margin: 0.1rem 0 0.4rem;
+    font-style: italic;
+    font-weight: 500;
+    color: #7a4a1f;
+  }
+  &__summary {
+    margin: 0;
+    line-height: 1.55;
+    font-size: 1.02rem;
+    color: var(--parch-ink);
+  }
+  .tagrow li {
+    background: rgba(122, 74, 31, 0.14);
+    border-color: rgba(122, 74, 31, 0.35);
+    color: #5a3a1a;
+  }
+}
+
+.entry__divider {
+  text-align: center;
+  color: rgba(110, 61, 26, 0.45);
+  margin: 1.1rem 0;
+  font-size: 0.9rem;
+  letter-spacing: 0.4em;
+}
+
+// ════════════════════════════════════════════════════════════════════════
+//  PROJECTS  →  stack of aged paper cards
+// ════════════════════════════════════════════════════════════════════════
+.agecards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(0.8rem, 2.5vw, 1.2rem);
+  margin-top: 0.6rem;
+}
+
+.agecard {
+  position: relative;
+  padding: 1.2rem 1.2rem 1.3rem;
+  border-radius: 8px;
+  color: #3c2c18;
+  background: linear-gradient(160deg, #f0e4ca, #ddc99e);
+  border: 1px solid rgba(90, 60, 25, 0.25);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.45), inset 0 0 26px rgba(120, 84, 40, 0.25);
+  transform: rotate(calc((var(--i) - 2) * 0.6deg));
+  transition: transform 0.4s var(--ease-soft), box-shadow 0.4s var(--ease-soft);
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background: var(--accent);
+    box-shadow: 0 0 16px var(--accent);
+  }
+
+  &:hover {
+    transform: rotate(0deg) translateY(-4px) scale(1.02);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55), 0 0 26px color-mix(in srgb, var(--accent) 40%, transparent);
+    z-index: 2;
+  }
+
+  &__pin {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #fff, var(--accent) 60%, #5a3a1a);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  h3 {
+    font-family: var(--font-head);
+    font-weight: 600;
+    font-size: 1.08rem;
+    margin: 0 0 0.4rem;
+    color: #4a3115;
+    padding-right: 0.8rem;
+  }
+  p {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 0.95rem;
+    color: #5a4226;
+  }
+  .tagrow li {
+    background: color-mix(in srgb, var(--accent) 18%, transparent);
+    border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+    color: #4a3115;
+  }
+}
+
+// ════════════════════════════════════════════════════════════════════════
+//  SKILLS  →  rune cards
+// ════════════════════════════════════════════════════════════════════════
+.runes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(0.7rem, 2vw, 1rem);
+  margin-top: 0.6rem;
+}
+
+.rune {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.1rem 0.7rem 0.9rem;
+  text-align: center;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(42, 32, 70, 0.7), rgba(20, 13, 34, 0.7));
+  border: 1px solid rgba(154, 123, 224, 0.25);
+  box-shadow: inset 0 0 22px rgba(106, 75, 176, 0.18);
+  transition: transform 0.35s var(--ease-soft), box-shadow 0.35s var(--ease-soft),
+    border-color 0.35s var(--ease-soft);
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba(243, 198, 107, 0.55);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45), 0 0 22px rgba(154, 123, 224, 0.35);
+  }
+
+  &__glyph {
+    font-size: 1.8rem;
+    color: var(--gold);
+    text-shadow: 0 0 18px rgba(243, 198, 107, 0.7);
+    animation: runeFloat 4s ease-in-out infinite;
+  }
+  &__name {
+    font-family: var(--font-head);
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    color: var(--text);
+  }
+  &__bar {
+    width: 100%;
+    height: 4px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    i {
+      display: block;
+      height: 100%;
+      width: var(--lvl);
+      background: linear-gradient(90deg, var(--violet-soft), var(--gold));
+      box-shadow: 0 0 10px rgba(243, 198, 107, 0.6);
+    }
+  }
+}
+
+@keyframes runeFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+// ════════════════════════════════════════════════════════════════════════
+//  ABOUT  →  floating magical glass
+// ════════════════════════════════════════════════════════════════════════
+.about {
+  position: relative;
+  text-align: center;
+  padding: 0.4rem 0.4rem 0.6rem;
+
+  &__halo {
+    position: absolute;
+    top: -40%;
+    left: 50%;
+    width: 70%;
+    height: 70%;
+    transform: translateX(-50%);
+    background: radial-gradient(circle, rgba(159, 180, 255, 0.35), transparent 65%);
+    filter: blur(20px);
+    pointer-events: none;
+  }
+  &__tagline {
+    font-style: italic;
+    font-size: 1.12rem;
+    color: var(--moon);
+    margin: 0.4rem 0 1rem;
+  }
+  &__blurb {
+    line-height: 1.62;
+    color: var(--text);
+    max-width: 46ch;
+    margin: 0 auto 1rem;
+  }
+  &__meta {
+    font-family: var(--font-head);
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    margin: 0 0 1.4rem;
+  }
+  &__links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6em 1.2em;
+      font-family: var(--font-head);
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      color: var(--text);
+      background: rgba(106, 75, 176, 0.18);
+      border: 1px solid rgba(154, 123, 224, 0.35);
+      border-radius: 999px;
+      transition: all 0.3s var(--ease-soft);
+      pointer-events: auto;
+      span {
+        color: var(--gold);
+      }
+      &:hover {
+        transform: translateY(-2px);
+        border-color: var(--gold);
+        background: rgba(243, 198, 107, 0.16);
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.4);
+      }
+    }
+  }
+}

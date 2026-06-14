@@ -1,0 +1,79 @@
+// ── Tablet / small desktop ──
+@media (max-width: 820px) {
+  .agecards {
+    grid-template-columns: 1fr;
+  }
+  .runes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .panel {
+    width: min(94vw, 560px);
+    max-height: 86vh;
+  }
+  .hint {
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 90vw;
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+// ── Phones ──
+@media (max-width: 540px) {
+  .panel {
+    width: 94vw;
+    max-height: 88vh;
+  }
+  .panel__content {
+    padding: 1.5rem 1.2rem;
+  }
+  .runes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .panel__close {
+    top: -10px;
+    right: -4px;
+  }
+  .toast {
+    width: 86vw;
+    text-align: center;
+  }
+  .brand {
+    letter-spacing: 0.1em;
+  }
+}
+
+// ── Touch devices: the cursor tooltip has no place, tap labels live in the HUD ──
+@media (hover: none) {
+  .tooltip {
+    display: none;
+  }
+  #webgl {
+    cursor: default;
+  }
+}
+
+// ── Respect reduced motion ──
+@media (prefers-reduced-motion: reduce) {
+  .loader::after,
+  .rune__glyph,
+  .enter-btn.is-ready {
+    animation: none !important;
+  }
+}
+
+// ── Short landscape (phones held sideways) ──
+@media (max-height: 480px) and (orientation: landscape) {
+  .panel {
+    max-height: 92vh;
+  }
+  .loader__glyph {
+    width: 96px;
+    height: 96px;
+  }
+  .loader__ring {
+    width: 96px;
+    height: 96px;
+  }
+}

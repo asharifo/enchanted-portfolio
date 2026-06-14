@@ -1,0 +1,64 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 38%, var(--night-700), var(--night-900) 78%);
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+#webgl {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  cursor: grab;
+  touch-action: none; // let OrbitControls own touch gestures
+  outline: none;
+}
+
+#webgl:active {
+  cursor: grabbing;
+}
+
+#ui-root {
+  position: fixed;
+  inset: 0;
+  pointer-events: none; // children opt back in
+  z-index: 10;
+  user-select: none;
+}
+
+#ui-root button {
+  font-family: var(--font-head);
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--night-900);
+}
+
+// thin themed scrollbars inside panels
+.panel ::-webkit-scrollbar {
+  width: 9px;
+}
+.panel ::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 20px;
+}
+.panel ::-webkit-scrollbar-thumb:hover {
+  background: rgba(243, 198, 107, 0.45);
+}

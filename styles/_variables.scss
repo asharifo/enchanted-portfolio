@@ -1,0 +1,46 @@
+// ── Design tokens (CSS custom properties so themes can remix at runtime) ──
+:root {
+  // night / mystical base
+  --night-900: #0c0814;
+  --night-800: #140d22;
+  --night-700: #1a1426;
+  --night-600: #241a38;
+  --indigo: #2a2046;
+  --violet: #6a4bb0;
+  --violet-soft: #9a7be0;
+
+  // warm enchantment
+  --gold: #f3c66b;
+  --gold-deep: #c89542;
+  --amber: #ffb35c;
+  --ember: #ff8a3d;
+
+  // cool magic
+  --moon: #9fb4ff;
+  --aqua: #7af0d0;
+  --firefly: #bdf7c4;
+
+  // parchment
+  --parch-100: #f5e9cf;
+  --parch-200: #e9d7ad;
+  --parch-300: #d9c089;
+  --parch-ink: #3a2a18;
+  --parch-ink-soft: #6a5236;
+
+  // ui ink
+  --text: #efe7d6;
+  --text-dim: #b6a9c9;
+  --line: rgba(243, 198, 107, 0.25);
+
+  // type
+  --font-display: 'Cinzel Decorative', 'Uncial Antiqua', serif;
+  --font-head: 'Cinzel', serif;
+  --font-body: 'EB Garamond', Georgia, serif;
+
+  // motion
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+  // layout
+  --pad: clamp(1.1rem, 3.2vw, 2.4rem);
+  --radius: 14px;
+}
