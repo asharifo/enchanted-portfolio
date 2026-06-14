@@ -5,7 +5,7 @@ import EventEmitter from '../utils/EventEmitter.js';
 // Asset manifest. Audio is fully procedural (see AudioManager), so the only
 // network payload here is geometry.
 const SOURCES = [
-  { name: 'room', type: 'gltf', path: './models/room.glb' },
+  { name: 'room', type: 'gltf', path: './models/room-no-window.glb' },
   { name: 'lanterns', type: 'gltf', path: './models/lanterns.glb' },
   { name: 'scroll', type: 'gltf', path: './models/scroll.glb' },
 ];
